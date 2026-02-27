@@ -26,8 +26,6 @@ $(document).ready(function () {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1
-                    // infinite: true,
-                    // dots: true
                 }
             },
             {
@@ -126,38 +124,4 @@ $(document).ready(function () {
         loader.hide();
     })
 
-    let zakazArr = [];// массив заказа
-
-// заполнение заказа по нажатию кнопок
-    $('.assortment__btn').click((e) => {
-        let zakazItem = {};// элемент  заказа
-
-        let zakaz = $("#input-product");
-        //ищем название элемента в карточке по нажатой кнопке
-        let selection = $(e.target).parents('.assortment__item').find('.assortment__item-name').text();
-// ищем индекс объекта в массиве по имени
-        let index = zakazArr.findIndex(el => el.name === selection);
-        if (index > -1) {
-            zakazArr[index].count += 1;
-        } else {
-            zakazItem.name = selection;
-            zakazItem.count = 1;
-            zakazArr.push(zakazItem);
-        }
-        window.location.href = "#assortment__items";// переходим к форме заполнения заказа
-// заполняем (обновляем) поле заказа из массива zakazArr
-        zakaz.val('');
-        $.each(zakazArr, function (ind, val) {
-            if (!zakaz.val()) {
-                zakaz.val(val.name + ' ' + val.count + ' шт. ');
-            } else {
-                zakaz.val(zakaz.val() + ', ' + val.name + ' ' + val.count + ' шт. ');
-            }
-        })
-
-// определение высоты textarea с учетом скрола
-        // height в jqwery не учитывает padding
-        //scrollHeight в jqwery нет
-        zakaz.height(zakaz[0].scrollHeight - 38); // scrollHeight высота поля с учетом (38 входит padding по Y (19px*2)
-    })
 })

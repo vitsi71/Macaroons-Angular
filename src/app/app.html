@@ -36,9 +36,9 @@
                 </svg>
         </div>
         <div class="nav__menu">
-          <a href="#assortment" class="nav__link">Пироженки</a>
-          <a href="#about" class="nav__link">О нас</a>
-          <a href="#order" class="nav__link">Оформить заказ</a>
+          <a (click)="scrollTo(assortment)" class="nav__link">Пироженки</a>
+          <a (click)="scrollTo(about)" class="nav__link">О нас</a>
+          <a (click)="scrollTo(order)" class="nav__link">Оформить заказ</a>
         </div>
 
       </nav>
@@ -54,8 +54,8 @@
       </h1>
       <p class="welcome__info">Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками
         Macaroon!</p>
-      <a href="#assortment">
-        <button class="button hvr-grow welcome__btn">Выбрать макарун</button>
+      <a (click)="scrollTo(assortment)">
+        <button class="button hvr-grow welcome__btn" >Выбрать макарун</button>
       </a>
       <div class="welcome__img">
         <img src="assets/images/set.png" alt="set" class="welcome__img-img">
@@ -63,134 +63,52 @@
     </div>
   </section>
 </section>
-<section class="about wow animated fadeIn delay-1s slow" id="about">
+<section class="about wow animated fadeIn delay-1s slow" #about>
   <div class="container about__container">
     <h2 class="about__name">Мы печём для вас вкуснейшие макаруны уже более 10 лет</h2>
     <p class="about__text">Все пироженки мы готовим только из натуральных и качественных продуктов, без
       консервантов, ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей,
       маргарина, разрыхлителей и улучшителей муки.</p>
     <div class="about__img">
-      <img src="assets/images/maracoon.png" alt="maracoon">
+      <img src="../assets/images/macaroon.png" alt="macaroon">
     </div>
     <div class="about__advantages">
-      <div class="about__advantage">
-        <div class="about__advantage-num">1</div>
-        <h3 class="about__advantage-name">Лучшие продукты</h3>
-        <p class="about__advantage-info">Мы честно готовим макаруны только из натуральных и качественных
-          продуктов. Мы не используем консерванты, ароматизаторы и красители.</p>
-      </div>
-      <div class="about__advantage">
-        <div class="about__advantage-num">2</div>
-        <h3 class="about__advantage-name">Много вкусов</h3>
-        <p class="about__advantage-info">Наша задача – предоставить вам широкое разнобразие вкусов. Вы
-          удивитесь, но у нас более 70 вкусов пироженок.</p>
-      </div>
-      <div class="about__advantage">
-        <div class="about__advantage-num">3</div>
-        <h3 class="about__advantage-name">Бисквитное тесто</h3>
-        <p class="about__advantage-info">Все пирожные готовятся на бисквитном тесте с качественным сливочным
-          маслом 82,5%. В составе нет маргарина и дрожжей!</p>
-      </div>
-      <div class="about__advantage">
-        <div class="about__advantage-num">4</div>
-        <h3 class="about__advantage-name">Честный продукт</h3>
-        <p class="about__advantage-info">Вкус, качество и безопасность наших пирогов подтверждена декларацией о
-          соответствии, которую мы получили 22.06.2016 г.</p>
-      </div>
+
+      @for (advantage of advantages; track advantage) {
+        <div class="about__advantage">
+          <div class="about__advantage-num">{{ $index + 1 }}</div>
+          <h3 class="about__advantage-name">{{ advantage.name }}</h3>
+          <p class="about__advantage-info">{{ advantage.info }}</p>
+        </div>
+      }
     </div>
   </div>
 </section>
-<section class="assortment wow animated zoomIn showing" id="assortment">
+<section class="assortment wow animated zoomIn showing" #assortment>
   <div class=" container">
     <h2 class="assortment__name">Выберите свой макарун</h2>
 
     <div class="assortment__container">
-      <div class="multiple-items" id="assortment__items" >
-
-        <div class="assortment__item">
-          <a href="assets/images/maracoon_red.png" class="assortment__item-img">
-            <img src="assets/images/maracoon_red.png" alt="maracoon_red">
-          </a>
-          <h3 class="assortment__item-name">Макарун с малиной</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
-
-        <div class="assortment__item">
-          <a href="assets/images/maracoon_yell.png" class="assortment__item-img">
-            <img src="assets/images/maracoon_yell.png" alt="maracoon_yell">
-          </a>
-          <h3 class="assortment__item-name">Макарун с манго</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
-
-        <div class="assortment__item">
-          <a href="assets/images/maracoon_beige.png" class="assortment__item-img">
-            <img src="assets/images/maracoon_beige.png" alt="maracoon_beige">
-          </a>
-          <h3 class="assortment__item-name">Пирог с ванилью</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
-
-        <div class="assortment__item">
-          <a href="assets/images/maracoon_green.png" class="assortment__item-img">
-            <img src="assets/images/maracoon_green.png" alt="maracoon_green">
-          </a>
-          <h3 class="assortment__item-name">Пирог с фисташками</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
-
-        <div class="assortment__item">
-          <a href="assets/images/макарон_ванильный_пломбир.png" class="assortment__item-img">
-            <img src="assets/images/макарон_ванильный_пломбир.png" alt="макарон_ванильный_пломбир">
-          </a>
-          <h3 class="assortment__item-name">Макарун ванильный пломбир</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
-
-        <div class="assortment__item">
-          <a href="assets/images/макарон_малина.png" class="assortment__item-img">
-            <img src="assets/images/макарон_малина.png" alt="макарон_малина">
-          </a>
-          <h3 class="assortment__item-name">Макарун малина</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
-        <div class="assortment__item">
-          <a href="assets/images/макарон_черная_смородина.png" class="assortment__item-img">
-            <img src="assets/images/макарон_черная_смородина.png" alt="maracoon_green">
-          </a>
-          <h3 class="assortment__item-name">Макарун черная смородина</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
-
-        <div class="assortment__item">
-          <a href="assets/images/макарон_шоколад.png" class="assortment__item-img">
-            <img src="assets/images/макарон_шоколад.png" alt="макарон_шоколад">
-          </a>
-          <h3 class="assortment__item-name">Макарун шоколад</h3>
-          <span class="assortment__item-count">1 шт.</span>
-          <span class="assortment__item-price">1,70 руб.</span>
-          <button class="button hvr-pulse-grow assortment__btn">Заказать</button>
-        </div>
+      <div class="multiple-items" id="assortment__items" #toSlider>
+        @for (assortment of assortments; track assortment) {
+          <div>
+            <div class="assortment__item">
+              <a href="../assets/images/{{assortment.image}}" class="assortment__item-img">
+                <img src="../assets/images/{{assortment.image}}" alt="macaroon_{{$index+1}}">
+              </a>
+              <h3 class="assortment__item-name">{{assortment.name}}</h3>
+              <span class="assortment__item-count">1 шт.</span>
+              <span class="assortment__item-price">{{assortment.price}} руб.</span>
+              <button class="button hvr-pulse-grow assortment__btn" (click)="addToOrder(assortment,toSlider)" >Заказать</button>
+            </div>
+          </div>
+        }
 
       </div>
     </div>
   </div>
 </section>
-<section class="order wow animated fadeInUp slow" id="order">
+<section class="order wow animated fadeInUp slow" #order>
   <div class="container order__container">
     <div class="order__img">
       <img src="assets/images/berry_top.png" alt="berry_top" class="order__anim order__anim-top">
@@ -206,9 +124,10 @@
       <div class="order_msg">Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</div>
       <div class="order_form_form">
         <h3 class="order__form-name">Ваш выбор</h3>
-        <textarea type="text" class="order__input textarea" id='input-product'
+<!--        <textarea type="text" class="order__input textarea" id='input-product'-->
+        <textarea type="text" class="order__input textarea"  id='input-product' [(ngModel)]="valueOrder"
                   placeholder="Напишите, что хотите заказать..." rows="1"></textarea>
-        <p class="input__error" >Заполните заказ</p>
+        <p class="input__error">Заполните заказ</p>
 
         <h3 class="order__form-name">Заполните данные для заказа</h3>
 

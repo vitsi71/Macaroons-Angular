@@ -360,6 +360,7 @@ body {
   margin: 0 auto;
 }
 .assortment__item {
+  /*padding: 71px 14.5px 80px;*/
   margin: 71px 14.5px 80px;
   border-width: 2px;
   border-color: rgb(255, 255, 255);

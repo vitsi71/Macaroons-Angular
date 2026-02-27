@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,8 +13,9 @@ import {SlickCarouselModule} from 'ngx-slick-carousel';
   imports: [
     BrowserModule,
     AppRoutingModule,
-  SlickCarouselModule
-    ],
+    SlickCarouselModule,
+    FormsModule
+  ],
   providers: [
     provideBrowserGlobalErrorListeners()
   ],
