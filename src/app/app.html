@@ -4,7 +4,7 @@
       <div class="logo">
         <img src="assets/images/logo.png" alt="logo">
       </div>
-      <div class="header__burger" id="burger">
+      <div class="header__burger" (click)="burger=true">
         <svg class="header__burger-svg"
              xmlns="http://www.w3.org/2000/svg"
              width="40px" height="22px">
@@ -17,8 +17,12 @@
         </svg>
 
       </div>
-      <nav class="nav" id="nav">
-        <div class="nav__close">
+
+<nav class="nav">
+
+
+        @if (burger){
+        <div class="nav__close" (click)="burger=false">
           <svg version="1.1" style="enable-background:new 0 0 492 492;" xmlns="http://www.w3.org/2000/svg"
                x="0px" y="0px"
                viewBox="0 0 500 492" xml:space="preserve">
@@ -35,21 +39,25 @@
                     </g>
                 </svg>
         </div>
+      }
+        @if (width620 || burger) {
         <div class="nav__menu">
-          <a (click)="scrollTo(assortment)" class="nav__link">Пироженки</a>
-          <a (click)="scrollTo(about)" class="nav__link">О нас</a>
-          <a (click)="scrollTo(order)" class="nav__link">Оформить заказ</a>
+          <a (click)="scrollTo(assortment); burger=false" class="nav__link">Пироженки</a>
+          <a (click)="scrollTo(about); burger=false" class="nav__link">О нас</a>
+          <a (click)="scrollTo(order); burger=false" class="nav__link">Оформить заказ</a>
         </div>
+      }
 
-      </nav>
-      <div class="contacts header__contacts">+375 (29) 368-98-68</div>
+</nav>
+      <div class="contacts header__contacts">{{phone}}</div>
     </div>
   </header>
+
   <section class="welcome">
     <div class="container welcome__container">
       <h1 class="welcome__name">
-        <span>Мягкие французские</span>
-        <span>пироженки Macaroons</span>
+        Мягкие французские пироженки Macaroons
+<!--        <span>пироженки Macaroons</span>-->
 
       </h1>
       <p class="welcome__info">Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками
@@ -84,7 +92,7 @@
     </div>
   </div>
 </section>
-<section class="assortment wow animated zoomIn showing" #assortment>
+<section class="assortment wow animated zoomIn showing"  #assortment>
   <div class=" container">
     <h2 class="assortment__name">Выберите свой макарун</h2>
 
@@ -92,8 +100,8 @@
       <div class="multiple-items" id="assortment__items" #toSlider>
         @for (assortment of assortments; track assortment) {
           <div>
-            <div class="assortment__item">
-              <a href="../assets/images/{{assortment.image}}" class="assortment__item-img">
+            <div class="assortment__item ">
+              <a class="assortment__item-img" (click)="popup(assortment)">
                 <img src="../assets/images/{{assortment.image}}" alt="macaroon_{{$index+1}}">
               </a>
               <h3 class="assortment__item-name">{{assortment.name}}</h3>
@@ -108,7 +116,7 @@
     </div>
   </div>
 </section>
-<section class="order wow animated fadeInUp slow" #order>
+<section class="order wow animated fadeInUp slow" id="order" #order>
   <div class="container order__container">
     <div class="order__img">
       <img src="assets/images/berry_top.png" alt="berry_top" class="order__anim order__anim-top">
@@ -158,24 +166,34 @@
     <div class="footer__text">
       <span>Все права защищены, 2020</span>
     </div>
-    <div class="footer__instagram">
+    <a class="footer__instagram" href="{{instagram}}">
       <img src="assets/images/instagram.png" alt="instagram">
       <span class="footer__instagram-text">Мы в Instagram</span>
-    </div>
-    <div class="contacts footer__contacts">+375 (29) 368-98-68</div>
+    </a>
+    <div class="contacts footer__contacts">{{phone}}</div>
   </div>
 </footer>
-<div class="present">
-  <div class="present__message">
-    <div class="present__info">Оформите заказ
-      и получите подарок!
+
+@if (showPresent) {
+  <div class="present">
+    <div class="present__message">
+      <div class="present__info">Оформите заказ
+        и получите подарок!
+      </div>
+    </div>
+    <div class="present__img">
+      <img src="assets/images/ellipse.png" alt="ellipse" class="present__ellipse">
+      <img src="assets/images/present.png" alt="present" class="present__img-img">
     </div>
   </div>
-  <div class="present__img">
-    <img src="assets/images/ellipse.png" alt="ellipse" class="present__ellipse">
-    <img src="assets/images/present.png" alt="present" class="present__img-img">
+}
+
+@if (popupOn){
+  <div class="popups" (click)="popupOn=false">
+    <img src="../assets/images/{{assortmentImage}}" alt="macaroon">
   </div>
-</div>
+}
+
 
 <!--//loader-->
 <div class="loader">

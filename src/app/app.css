@@ -46,9 +46,9 @@ body {
   right: 20px;
 }
 
-.nav__close {
-  display: none;
-}
+/*.nav__close {*/
+/*  display: none;*/
+/*}*/
 
 .container {
   max-width: 1180px;
@@ -805,4 +805,17 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+.popups{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }

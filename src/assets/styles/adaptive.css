@@ -12,11 +12,6 @@
         padding: 38px 0 0;
     }
 
-    .welcome__name span {
-        font-size: 50px;
-        white-space: nowrap;
-    }
-
     .welcome__container {
         grid-template-columns: 50% 50%;
     }
@@ -44,7 +39,7 @@
     }
 
     .about__advantages {
-        grid-template: repeat(2, 250px)/ repeat(2, 250px);
+        grid-template: repeat(2, 350px)/ repeat(2, 350px);
     }
 
     .nav {
@@ -53,10 +48,10 @@
     }
 
     .welcome__container {
-        /*display: grid;*/
+        display: grid;
         grid-template-areas:
 "welcome-name welcome-name"
-"welcome-info ."
+"welcome-info welcome-info"
 "welcome-btn welcome-img";
     }
 
@@ -71,7 +66,7 @@
         right: 55px;
     }
 
-    .welcome__name span {
+    .welcome__name {
         font-size: 55px;
     }
 
@@ -256,7 +251,7 @@
 
     }
 
-    .welcome__name, .welcome__name span {
+    .welcome__name {
         font-size: 32px;
         white-space: none;
         line-height: 40px;
@@ -300,11 +295,7 @@
         font-size: 15px;
     }
 
-    .nav {
-        display: none;
-    }
-
-    .about__advantages {
+     .about__advantages {
         grid-template-columns: repeat(2, minmax(140px, 300px));
     }
 

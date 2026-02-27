@@ -9,11 +9,6 @@ $(document).ready(function () {
 // Инициализация анимации
     new WOW().init();
 
-    // //открытие картинки на полный экран
-    $('.card-img').magnificPopup({
-        type: 'image'
-    });
-
 // слайдер
     $('.multiple-items').slick({
         infinite: true,
@@ -45,10 +40,6 @@ $(document).ready(function () {
 
         ]
 
-    });
-
-    $('.assortment__item-img').magnificPopup({
-        type: 'image'
     });
 
     let loader = $('.loader');

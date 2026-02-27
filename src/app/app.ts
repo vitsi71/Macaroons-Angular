@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AboutAdvantageType} from './types/about-advantage.type';
 import {AssortmentType} from './types/assortment.type';
-import {ZakazItemType} from './types/zakazItem.type';
 
 
 @Component({
@@ -9,9 +8,17 @@ import {ZakazItemType} from './types/zakazItem.type';
   templateUrl: './app.html',
   standalone: false,
   styleUrls: ['../assets/styles/jquery-ui.css', '../assets/slick/slick.css', '../assets/slick/slick-theme.css', '../assets/styles/animate.min.css',
-    '../assets/styles/hover-min.css', '../assets/styles/magnific-popup.css', './app.css', '../assets/styles/adaptive.css']
+    '../assets/styles/hover-min.css', './app.css', '../assets/styles/adaptive.css']
 })
 export class App {
+
+  public showPresent: boolean = false;
+  public phone: string = "+375 (29) 368-98-68";
+  public instagram: string = "https://web.telegram.org";
+  public popupOn: boolean = false;
+  public burger: boolean = false;
+  public width620: boolean = (window.innerWidth >= 620) ? true : false;
+
 
   public advantages: AboutAdvantageType[] = [
     {
@@ -87,7 +94,7 @@ export class App {
     target.scrollIntoView({behavior: "smooth"});
   }
 
-  public valueOrder:string= '';
+  public valueOrder: string = '';
 
   public addToOrder(product: AssortmentType, target: HTMLElement) {
     this.scrollTo(target);
@@ -101,12 +108,12 @@ export class App {
         let count: string | undefined = orderArr[i].split(' ').pop();
         if (count) {
           //увеличиваем колличество на 1 и заменяем товар в первоначальном массиве
-          orderArr[i] = product.name.toUpperCase() + ' ' + (parseInt(count) + 1) + 'шт';
+          orderArr[i] = ' ' + product.name.toUpperCase() + ' ' + (parseInt(count) + 1) + 'шт';
         }
         //заполняем исправленный заказ
         this.valueOrder = '';
         for (let i = 0; i < orderArr.length; i++) {
-          let separator = (this.valueOrder === '') ? '' : ', ';
+          let separator = (this.valueOrder === '') ? '' : ',';
           this.valueOrder += separator + orderArr[i];
         }
         break;
@@ -124,4 +131,10 @@ export class App {
     inputProduct.style.height = inputProduct.scrollHeight.toString() + 'px';
   }
 
+  public assortmentImage: string = '';
+
+  public popup(product: AssortmentType) {
+    this.popupOn = true;
+    this.assortmentImage = product.image;
+  }
 }
