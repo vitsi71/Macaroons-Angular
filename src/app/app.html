@@ -1,31 +1,22 @@
 <section class="main wow animated fadeInDown slow">
+
   <header class="header">
     <div class="container header__container">
       <div class="logo">
         <img src="assets/images/logo.png" alt="logo">
       </div>
-      <div class="header__burger" (click)="burger=true">
-        <svg class="header__burger-svg"
-             xmlns="http://www.w3.org/2000/svg"
-             width="40px" height="22px">
-          <path fill-rule="evenodd" fill="rgb(130, 19, 40)"
-                d="M0.000,-0.000 L40.000,-0.000 L40.000,2.000 L0.000,2.000 L0.000,-0.000 Z"/>
-          <path fill-rule="evenodd" fill="rgb(130, 19, 40)"
-                d="M0.000,10.000 L40.000,10.000 L40.000,12.000 L0.000,12.000 L0.000,10.000 Z"/>
-          <path fill-rule="evenodd" fill="rgb(130, 19, 40)"
-                d="M0.000,20.000 L40.000,20.000 L40.000,22.000 L0.000,22.000 L0.000,20.000 Z"/>
+      <div class="header__burger" id="burger">
+        <svg (click)="burgerOn()" class="header__burger-svg" xmlns="http://www.w3.org/2000/svg" width="40px" height="22px">
+          <path fill-rule="evenodd" fill="rgb(130, 19, 40)" d="M0.000,-0.000 L40.000,-0.000 L40.000,2.000 L0.000,2.000 L0.000,-0.000 Z"></path>
+          <path fill-rule="evenodd" fill="rgb(130, 19, 40)" d="M0.000,10.000 L40.000,10.000 L40.000,12.000 L0.000,12.000 L0.000,10.000 Z"></path>
+          <path fill-rule="evenodd" fill="rgb(130, 19, 40)" d="M0.000,20.000 L40.000,20.000 L40.000,22.000 L0.000,22.000 L0.000,20.000 Z"></path>
         </svg>
 
       </div>
 
-<nav class="nav">
-
-
-        @if (burger){
-        <div class="nav__close" (click)="burger=false">
-          <svg version="1.1" style="enable-background:new 0 0 492 492;" xmlns="http://www.w3.org/2000/svg"
-               x="0px" y="0px"
-               viewBox="0 0 500 492" xml:space="preserve">
+      <nav class="nav" [class.open]="(burger || width620)" id="nav">
+        <div class="nav__close" (click)="burgerOn()">
+          <svg version="1.1" style="enable-background:new 0 0 492 492;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 500 492" xml:space="preserve">
                     <g>
                         <g>
                             <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
@@ -34,22 +25,22 @@
                                 L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
                                 c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
                                 c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
-                                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
+                                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"></path>
                         </g>
                     </g>
                 </svg>
         </div>
-      }
-        @if (width620 || burger) {
         <div class="nav__menu">
-          <a (click)="scrollTo(assortment); burger=false" class="nav__link">Пироженки</a>
-          <a (click)="scrollTo(about); burger=false" class="nav__link">О нас</a>
-          <a (click)="scrollTo(order); burger=false" class="nav__link">Оформить заказ</a>
-        </div>
-      }
 
-</nav>
-      <div class="contacts header__contacts">{{phone}}</div>
+                    <a (click)="scrollTo(assortment)" class="nav__link">Пироженки</a>
+                    <a (click)="scrollTo(about)" class="nav__link">О нас</a>
+                    <a (click)="scrollTo(order)" class="nav__link">Оформить заказ</a>
+
+        </div>
+
+      </nav>
+
+      <div class="contacts header__contacts">+375 (29) 368-98-68</div>
     </div>
   </header>
 

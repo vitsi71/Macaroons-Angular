@@ -19,6 +19,9 @@ export class App {
   public burger: boolean = false;
   public width620: boolean = (window.innerWidth >= 620) ? true : false;
 
+  public burgerOn():void{
+    this.burger=!this.burger;
+  }
 
   public advantages: AboutAdvantageType[] = [
     {
@@ -92,6 +95,7 @@ export class App {
 
   public scrollTo(target: HTMLElement): void {
     target.scrollIntoView({behavior: "smooth"});
+    this.burger=false;
   }
 
   public valueOrder: string = '';

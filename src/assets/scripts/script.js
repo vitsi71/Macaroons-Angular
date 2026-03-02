@@ -1,11 +1,5 @@
 $(document).ready(function () {
-//выпадающее меню
-    $('#burger').click(function () {
-        $('#nav').addClass('open');
-    })
-    $('.nav__close').click(() => {
-        $('#nav').removeClass('open');
-    })
+
 // Инициализация анимации
     new WOW().init();
 
