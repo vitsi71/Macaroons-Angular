@@ -17,7 +17,6 @@ export class App {
   public instagram: string = "https://web.telegram.org";
   public popupOn: boolean = false;
   public burger: boolean = false;
-  public width620: boolean = (window.innerWidth >= 620) ? true : false;
 
   public burgerOn():void{
     this.burger=!this.burger;
