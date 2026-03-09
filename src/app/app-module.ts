@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {FormsModule} from '@angular/forms';
+import {AssortmentsList} from './services/assortments-list';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    AssortmentsList
   ],
   bootstrap: [App]
 })

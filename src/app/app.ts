@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AboutAdvantageType} from './types/about-advantage.type';
 import {AssortmentType} from './types/assortment.type';
+import {AssortmentsList} from './services/assortments-list';
 
 
 @Component({
@@ -10,8 +11,9 @@ import {AssortmentType} from './types/assortment.type';
   styleUrls: ['../assets/styles/jquery-ui.css', '../assets/slick/slick.css', '../assets/slick/slick-theme.css', '../assets/styles/animate.min.css',
     '../assets/styles/hover-min.css', './app.css', '../assets/styles/adaptive.css']
 })
-export class App {
-
+export class App implements OnInit{
+constructor(private assortmentsList:AssortmentsList) {
+}
   public showPresent: boolean = false;
   public phone: string = "+375 (29) 368-98-68";
   public instagram: string = "https://web.telegram.org";
@@ -20,6 +22,10 @@ export class App {
 
   public burgerOn():void{
     this.burger=!this.burger;
+  }
+
+  ngOnInit(){
+    this.assortments=this.assortmentsList.getAssortments();
   }
 
   public advantages: AboutAdvantageType[] = [
@@ -49,48 +55,8 @@ export class App {
     },
   ]
 
-  public assortments: AssortmentType[] = [
-    {
-      image: "macaroon_red.png",
-      name: "Макарун с малиной",
-      price: 1.70
-    },
-    {
-      image: "macaroon_yell.png",
-      name: "Макарун с манго",
-      price: 1.70
-    },
-    {
-      image: "macaroon_beige.png",
-      name: "Пирог с ванилью",
-      price: 1.70
-    },
-    {
-      image: "macaroon_green.png",
-      name: "Пирог с фисташками",
-      price: 1.70
-    },
-    {
-      image: "macaroon_vanilla.png",
-      name: "Макарун ванильный пломбир",
-      price: 1.70
-    },
-    {
-      image: "macaroon_malina.png",
-      name: "Макарун малина",
-      price: 1.70
-    },
-    {
-      image: "macaroon_currant.png",
-      name: "Макарун черная смородина",
-      price: 1.70
-    },
-    {
-      image: "macaroon_chocolate.png",
-      name: "Макарун шоколад",
-      price: 1.70
-    },
-  ]
+  public assortments: AssortmentType[] = [];
+
 
   public scrollTo(target: HTMLElement): void {
     target.scrollIntoView({behavior: "smooth"});
@@ -140,4 +106,6 @@ export class App {
     this.popupOn = true;
     this.assortmentImage = product.image;
   }
+
+  protected readonly AssortmentsList = AssortmentsList;
 }
