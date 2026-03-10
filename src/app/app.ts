@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {AboutAdvantageType} from './types/about-advantage.type';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AssortmentType} from './types/assortment.type';
 import {AssortmentsList} from './services/assortments-list';
+import {CountOrder} from './services/count-order';
+import {AdvantagesComponent} from './components/advantages/advantages';
 
 
 @Component({
@@ -12,13 +13,17 @@ import {AssortmentsList} from './services/assortments-list';
     '../assets/styles/hover-min.css', './app.css', '../assets/styles/adaptive.css']
 })
 export class App implements OnInit{
-constructor(private assortmentsList:AssortmentsList) {
+constructor(private assortmentsList:AssortmentsList, public countOrder:CountOrder) {
 }
-  public showPresent: boolean = false;
+  public showPresent: boolean = true;
   public phone: string = "+375 (29) 368-98-68";
   public instagram: string = "https://web.telegram.org";
   public popupOn: boolean = false;
   public burger: boolean = false;
+
+  @ViewChild (AdvantagesComponent)
+  public advantagesComponent!: AdvantagesComponent;
+
 
   public burgerOn():void{
     this.burger=!this.burger;
@@ -27,33 +32,6 @@ constructor(private assortmentsList:AssortmentsList) {
   ngOnInit(){
     this.assortments=this.assortmentsList.getAssortments();
   }
-
-  public advantages: AboutAdvantageType[] = [
-    {
-      num: 1,
-      name: "Лучшие продукты",
-      info: "Мы честно готовим макаруны только из натуральных и качественных продуктов.Мы " +
-        "не используем консерванты, ароматизаторы и красители."
-    },
-    {
-      num: 2,
-      name: "Много вкусов",
-      info: "Наша задача – предоставить вам широкое разнобразие вкусов. Вы удивитесь, но у нас" +
-        " более 70 вкусов пироженок."
-    },
-    {
-      num: 3,
-      name: "Бисквитное тесто",
-      info: "Все пирожные готовятся на бисквитном тесте с качественным сливочным " +
-        "маслом 82,5%. В составе нет маргарина и дрожжей!"
-    },
-    {
-      num: 4,
-      name: "Честный продукт",
-      info: "Вкус, качество и безопасность наших пирогов подтверждена декларацией о соответствии," +
-        " которую мы получили 22.06.2016 г."
-    },
-  ]
 
   public assortments: AssortmentType[] = [];
 
@@ -66,6 +44,9 @@ constructor(private assortmentsList:AssortmentsList) {
   public valueOrder: string = '';
 
   public addToOrder(product: AssortmentType, target: HTMLElement) {
+
+    this.countOrder.count ++; // добавляем количество в корзину
+    this.countOrder.orderAmount+=product.price; // добавляем сумму заказа
     this.scrollTo(target);
     // разбиваем заказ намассив элементов
     let orderArr = this.valueOrder.split(',');
@@ -107,5 +88,4 @@ constructor(private assortmentsList:AssortmentsList) {
     this.assortmentImage = product.image;
   }
 
-  protected readonly AssortmentsList = AssortmentsList;
 }

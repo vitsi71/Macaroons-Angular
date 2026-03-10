@@ -6,10 +6,14 @@ import { App } from './app';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {FormsModule} from '@angular/forms';
 import {AssortmentsList} from './services/assortments-list';
+import {AmountStrPipe} from './pipes/amout-str-pipe';
+import {AdvantagesComponent} from './components/advantages/advantages';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    AmountStrPipe,
+    AdvantagesComponent
   ],
   imports: [
     BrowserModule,

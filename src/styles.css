@@ -35,3 +35,22 @@ body {
   font-family: tavolga, sans-serif;
   background-color: rgb(255, 239, 239);
 }
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+.button {
+  background-image: -moz-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
+  background-image: -webkit-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
+  background-image: -ms-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
+  font-family: gilroy-bold, sans-serif;
+  border: 0;
+  transition: all 0.5s ease;
+}
+
+.button:hover {
+  box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
+  cursor: pointer;
+}

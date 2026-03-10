@@ -1,0 +1,21 @@
+<section class="about wow animated fadeIn delay-1s slow" #about>
+  <div class="container about__container">
+    <h2 class="about__name">Мы печём для вас вкуснейшие макаруны уже более 10 лет</h2>
+    <p class="about__text">Все пироженки мы готовим только из натуральных и качественных продуктов, без
+      консервантов, ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей,
+      маргарина, разрыхлителей и улучшителей муки.</p>
+    <div class="about__img">
+      <img src="../../../assets/images/macaroon.png" alt="macaroon">
+    </div>
+    <div class="about__advantages">
+
+      @for (advantage of advantages; track advantage) {
+        <div class="about__advantage">
+          <div class="about__advantage-num">{{ $index + 1 }}</div>
+          <h3 class="about__advantage-name">{{ advantage.name }}</h3>
+          <p class="about__advantage-info">{{ advantage.info }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

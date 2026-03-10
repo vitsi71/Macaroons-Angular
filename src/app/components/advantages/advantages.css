@@ -1,0 +1,90 @@
+.about {
+  padding: 120px 0;
+}
+
+.about__container {
+  display: grid;
+  grid-template-areas:
+    "name img"
+    "info img"
+    "adv adv";
+  row-gap: 56px;
+  align-items: end;
+  grid-template-columns: 50% 50%;
+
+}
+
+.about__name {
+  width: 475px;
+  font-size: 45px;
+  font-weight: 400;
+  color: rgb(51, 25, 7);
+  line-height: 1.222;
+  grid-area: name;
+}
+
+.about__text {
+  margin-right: 29%;
+  font-size: 18px;
+  font-family: gilroy-regular, sans-serif;
+  color: rgb(51, 25, 7);
+  line-height: 1.556;
+  grid-area: info;
+}
+
+.about__img {
+  grid-area: img;
+  text-align: right;
+
+}
+
+.about__advantages {
+  grid-area: adv;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 220px);
+  column-gap: 86px;
+  justify-content: center;
+  row-gap: 80px;
+  justify-items: center;
+}
+
+.about__advantage {
+  max-width: 220px;
+}
+
+.about__advantage-num {
+  border-radius: 50%;
+  background-color: rgb(130, 19, 40);
+  width: 70px;
+  height: 70px;
+  font-size: 60px;
+  font-family: gilroy-extrabold, sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 0.67;
+  text-align: center;
+  align-content: end;
+  margin-bottom: 13px;
+  transition: all 0.3s ease;
+}
+
+.about__advantage:hover .about__advantage-num {
+  background-color: rgb(235, 168, 177);
+  color: rgb(130, 19, 40);
+}
+
+
+.about__advantage-name {
+  font-size: 20px;
+  font-family: gilroy-extrabold, sans-serif;
+  color: rgb(51, 25, 7);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.about__advantage-info {
+  font-size: 15px;
+  font-family: gilroy-medium, sans-serif;
+  font-weight: 600;
+  color: rgb(51, 25, 7);
+  line-height: 1.333;
+}
