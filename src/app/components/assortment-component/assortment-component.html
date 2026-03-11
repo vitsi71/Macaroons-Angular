@@ -1,0 +1,14 @@
+<div>
+  <div class="assortment__item ">
+    <a class="assortment__item-img" (click)="popup1(assortment)">
+      <img src="../../../assets/images/{{assortment.image}}" alt="macaroon_">
+    </a>
+    <h3 class="assortment__item-name">{{assortment.name}}</h3>
+    <span class="assortment__item-count">1 шт.</span>
+    <span class="assortment__item-price">{{assortment.price | currencyPipe }}</span>
+    <button class="button hvr-pulse-grow assortment__btn" buttonBackground (click)="addToOrder(assortment)" >Заказать</button>
+  </div>
+</div>
+
+
+

@@ -88,3 +88,88 @@
   color: rgb(51, 25, 7);
   line-height: 1.333;
 }
+@media screen and (max-width: 1174px){
+  .about__advantage {
+    justify-items: center;
+    text-align: center;
+  }
+  .about__advantages {
+    column-gap: 3.5%;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .about__advantages {
+    grid-template: repeat(2, 350px)/ repeat(2, 350px);
+  }
+  .about {
+    text-align: center;
+  }
+
+  .about__container {
+    grid-template-areas:
+    "name name"
+    "info info"
+    "img img"
+    "adv adv";
+  }
+
+  .about__name, .about__text, .about__img {
+    margin: 0 auto;
+  }
+
+  .about__text {
+    padding: 0 50px;
+
+  }
+
+  .about__img {
+    width: 302px;
+
+  }
+  @media screen and (max-width: 620px) {
+    .about {
+      padding: 100px 0 100px;
+    }
+
+    .about__container, .about__advantages {
+      row-gap: 40px;
+    }
+
+    .about__advantage-name {
+      font-size: 18px;
+    }
+
+    .about__text {
+      padding: 0;
+
+    }
+
+    .about__name, .assortment__name, .order__name {
+      font-size: 30px;
+    }
+    .about__advantage-info {
+      font-size: 13px;
+      max-width: 250px;
+    }
+    .about__advantages {
+      grid-template-columns: repeat(2, minmax(140px, 300px));
+    }
+
+    .about__advantage {
+      width: 100%;
+    }
+
+    .about__name {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .about__advantages {
+    gap: 15px;
+  }
+
+  .about__advantage {
+    max-width: 220px;
+  }
+}

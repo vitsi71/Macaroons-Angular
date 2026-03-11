@@ -63,7 +63,6 @@
   </section>
 </section>
 
-<!--<div  #about></div>-->
 <advantagesComponent></advantagesComponent>
 
 <section class="assortment wow animated zoomIn showing"  #assortment>
@@ -73,17 +72,9 @@
     <div class="assortment__container">
       <div class="multiple-items" id="assortment__items" #toSlider>
         @for (assortment of assortments; track assortment) {
-          <div>
-            <div class="assortment__item ">
-              <a class="assortment__item-img" (click)="popup(assortment)">
-                <img src="../assets/images/{{assortment.image}}" alt="macaroon_{{$index+1}}">
-              </a>
-              <h3 class="assortment__item-name">{{assortment.name}}</h3>
-              <span class="assortment__item-count">1 шт.</span>
-              <span class="assortment__item-price">{{assortment.price}} руб.</span>
-              <button class="button hvr-pulse-grow assortment__btn" (click)="addToOrder(assortment,toSlider)" >Заказать</button>
-            </div>
-          </div>
+
+          <assortment-component [assortment]="assortment" (popupEvent)="popup($event)"
+                                (addToOrderEvent)="addToOrder($event,toSlider)"></assortment-component>
         }
 
       </div>
@@ -106,9 +97,8 @@
       <div class="order_msg">Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</div>
       <div class="order_form_form">
         <h3 class="order__form-name">Ваш выбор</h3>
-<!--        <textarea type="text" class="order__input textarea" id='input-product'-->
-        <textarea type="text" class="order__input textarea"  id='input-product' [(ngModel)]="valueOrder"
-                  placeholder="Напишите, что хотите заказать..." rows="1"></textarea>
+        <textarea type="textarea" class="order__input textarea"  id='input-product' [(ngModel)]="valueOrder"
+                  placeholder="Напишите, что хотите заказать..." rows="1" ></textarea>
         <p class="input__error">Заполните заказ</p>
 
         <h3 class="order__form-name">Заполните данные для заказа</h3>
@@ -120,7 +110,7 @@
         <p class="input__error">Введите телефон для связи</p>
         <p class="input__error">Введите телефон для связи полностью</p>
 
-        <button class="button hvr-bounce-in order__btn">Оформить заказ</button>
+        <button class="button hvr-bounce-in order__btn" buttonBackground [bgColor]="'rgb(248,2,22)'" [focusBgColor]="'blue'" >Оформить заказ</button>
       </div>
       <img src="assets/images/berry_bottom.png" alt="berry_bottom" class="order__anim order__anim-bottom">
 
@@ -151,19 +141,13 @@
 @if (showPresent) {
   <div class="present">
     <div class="present__message">
-      <div class="present__info">{{countOrder.orderAmount | amountStr}}</div>
+      <div class="present__info">{{countOrder.orderAmount | currencyPipe}}</div>
     </div>
     <div class="present__img">
       <img src="assets/images/ellipse.png" alt="ellipse" class="present__ellipse">
       <img src="assets/images/cart.png" alt="cart" class="cart__img-img">
       <div class="count_order">{{ countOrder.count }}</div>
     </div>
-  </div>
-}
-
-@if (popupOn){
-  <div class="popups" (click)="popupOn=false">
-    <img src="../assets/images/{{assortmentImage}}" alt="macaroon">
   </div>
 }
 
@@ -186,3 +170,8 @@
   </div>
 </div>
 
+@if (popupOn){
+  <div class="popups" (click)="popupOn=false">
+    <img src="../assets/images/{{assortmentImage}}" alt="macaroon">
+  </div>
+}

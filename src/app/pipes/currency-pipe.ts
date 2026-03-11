@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'amountStr',
+  name: 'currencyPipe',
   standalone: false
 })
-export class AmountStrPipe implements PipeTransform {
+export class CurrencyPipe  implements PipeTransform {
 
   transform(value: number): string {
     return value.toFixed(2).replace(".", ",") + ' руб.';

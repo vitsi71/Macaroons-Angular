@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {AboutAdvantageType} from '../../types/about-advantage.type';
 
 @Component({
@@ -11,6 +11,12 @@ export class AdvantagesComponent {
 
 @ViewChild ("about")
   public about!: ElementRef;
+
+public hidingTextToLength:boolean=true;
+
+  textToLength(){
+    this.hidingTextToLength=!this.hidingTextToLength
+  }
 
   public advantages: AboutAdvantageType[] = [
     {

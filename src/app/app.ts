@@ -5,6 +5,7 @@ import {CountOrder} from './services/count-order';
 import {AdvantagesComponent} from './components/advantages/advantages';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
@@ -13,13 +14,16 @@ import {AdvantagesComponent} from './components/advantages/advantages';
     '../assets/styles/hover-min.css', './app.css', '../assets/styles/adaptive.css']
 })
 export class App implements OnInit{
+
+
 constructor(private assortmentsList:AssortmentsList, public countOrder:CountOrder) {
+
 }
   public showPresent: boolean = true;
   public phone: string = "+375 (29) 368-98-68";
   public instagram: string = "https://web.telegram.org";
-  public popupOn: boolean = false;
   public burger: boolean = false;
+
 
   @ViewChild (AdvantagesComponent)
   public advantagesComponent!: AdvantagesComponent;
@@ -42,11 +46,8 @@ constructor(private assortmentsList:AssortmentsList, public countOrder:CountOrde
   }
 
   public valueOrder: string = '';
-
   public addToOrder(product: AssortmentType, target: HTMLElement) {
 
-    this.countOrder.count ++; // добавляем количество в корзину
-    this.countOrder.orderAmount+=product.price; // добавляем сумму заказа
     this.scrollTo(target);
     // разбиваем заказ намассив элементов
     let orderArr = this.valueOrder.split(',');
@@ -76,12 +77,18 @@ constructor(private assortmentsList:AssortmentsList, public countOrder:CountOrde
       }
     }
 
-    //увеличиваем высоту HTMLTextAreaElement
+     //увеличиваем высоту HTMLTextAreaElement
+
     let inputProduct: HTMLTextAreaElement = document.getElementById("input-product") as HTMLTextAreaElement;
-    inputProduct.style.height = inputProduct.scrollHeight.toString() + 'px';
+
+    inputProduct.style.height = inputProduct.scrollHeight.toString()+'px';
+
+    alert(product.name.toUpperCase() + ' добавлен в корзину!')
   }
 
+  public popupOn: boolean = false;
   public assortmentImage: string = '';
+
 
   public popup(product: AssortmentType) {
     this.popupOn = true;

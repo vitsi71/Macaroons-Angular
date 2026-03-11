@@ -51,6 +51,126 @@ body {
 }
 
 .button:hover {
-  box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
   cursor: pointer;
+}
+
+@media screen and (max-width: 374px) {
+  .container {
+    padding: 0 5px;
+  }
+
+  .about, .assortment, .order {
+
+    padding: 25px 0
+  }
+
+  .about__name, .assortment__name {
+    font-size: 26px
+  }
+
+  .about__container {
+    row-gap: 20px
+  }
+
+  .about__advantage-name {
+    font-size: 16px
+  }
+
+  .about__text {
+    font-size: 14px;
+    line-height: 18px
+  }
+
+  .about__advantage-num {
+    font-size: 40px;
+    width: 50px;
+    height: 50px
+  }
+
+  .about__advantage-name {
+    font-size: 14px;
+    margin-bottom: 15px
+  }
+
+  .about__advantages {
+    row-gap: 15px;
+    padding: 0 10px
+  }
+
+  .about__advantage-info {
+    font-size: 12px
+  }
+
+  .assortment__name {
+    margin-bottom: 20px
+  }
+
+  .assortment__item {
+    margin-bottom: 0
+  }
+
+  .assortment__items {
+    row-gap: 20px
+  }
+
+  .order__name, .order__info, .order__form-name {
+    text-align: center;
+  }
+
+  .order__info {
+    font-size: 15px;
+    line-height: 18px;
+    margin: 20px 0 20px;
+  }
+
+  .order__form-name {
+    margin-top: 0
+  }
+
+  .order__anim-bottom {
+    top: 112px
+  }
+
+  .footer {
+    padding: 30px 0;
+  }
+
+  .footer__container {
+    row-gap: 15px
+  }
+
+  .present__ellipse {
+    width: 75px;
+  }
+  .present,.present:hover .present__img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .cart__img-img {
+    width: 40px;
+    height: 40px;
+  }
+  .present__info{
+    width: 153px;
+    font-size: 13px;
+  }
+  .present__info:after{
+    left: 147px;
+  }
+  .present__info:before{
+    left: 150px;
+  }
+  .present__message{
+    left: -170px;
+    bottom: -100px;
+  }
+
+  .assortment__container{
+    width: 280px;
+  }
+  .slick-next,
+  .slick-prev {
+    top: calc(50% + 30px);
+  }
 }
