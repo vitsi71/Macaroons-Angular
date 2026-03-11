@@ -10,6 +10,7 @@ import {AdvantagesComponent} from './components/advantages/advantages';
 import { AssortmentComponent } from './components/assortment-component/assortment-component';
 import { ButtonBackground } from './directives/button-backgraund';
 import { TextLengthPipe } from './pipes/text-length-pipe';
+import { PhoneFormatPipe } from './pipes/phone-format-pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TextLengthPipe } from './pipes/text-length-pipe';
     AdvantagesComponent,
     AssortmentComponent,
      ButtonBackground,
-    TextLengthPipe
+    TextLengthPipe,
+    PhoneFormatPipe
   ],
   imports: [
     BrowserModule,

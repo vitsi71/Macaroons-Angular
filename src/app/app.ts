@@ -20,7 +20,7 @@ constructor(private assortmentsList:AssortmentsList, public countOrder:CountOrde
 
 }
   public showPresent: boolean = true;
-  public phone: string = "+375 (29) 368-98-68";
+  public phone: string = "375293689868";
   public instagram: string = "https://web.telegram.org";
   public burger: boolean = false;
 
