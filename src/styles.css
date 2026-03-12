@@ -166,11 +166,5 @@ body {
     bottom: -100px;
   }
 
-  .assortment__container{
-    width: 280px;
-  }
-  .slick-next,
-  .slick-prev {
-    top: calc(50% + 30px);
-  }
+
 }

@@ -20,7 +20,7 @@ constructor(public countOrder:CountOrder) {
   };
 
   @Output() popupEvent: EventEmitter<AssortmentType>= new EventEmitter<AssortmentType>();
-  popup1(product: AssortmentType) {
+  popup(product: AssortmentType) {
     this.popupEvent.emit(product);
   }
 

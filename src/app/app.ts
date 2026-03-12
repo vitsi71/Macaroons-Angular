@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AssortmentType} from './types/assortment.type';
 import {AssortmentsList} from './services/assortments-list';
 import {CountOrder} from './services/count-order';
@@ -27,6 +27,11 @@ constructor(private assortmentsList:AssortmentsList, public countOrder:CountOrde
 
   @ViewChild (AdvantagesComponent)
   public advantagesComponent!: AdvantagesComponent;
+
+  @ViewChild ('assortment')
+  public assortment!: ElementRef;
+  @ViewChild ('order')
+  public order!: ElementRef;
 
 
   public burgerOn():void{

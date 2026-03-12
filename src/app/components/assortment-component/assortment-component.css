@@ -1,32 +1,32 @@
 
 /*-------------- слайдер -----------------*/
 /*__________стрелки______________*/
-.slick-next:before,
-.slick-prev:before {
-  color: transparent !important;
-}
-.slick-next,
-.slick-prev {
-  border: solid rgb(255, 255, 255);
-  width: 18px;
-  height: 18px;
-  top:calc(50% - 14px);
-  border-width: 0 4px 4px 0;
-  display: inline-block;
-  padding: 3px;
-  z-index: 2;
-}
+/*.slick-next:before,*/
+/*.slick-prev:before {*/
+/*  color: transparent !important;*/
+/*}*/
+/*.slick-next,*/
+/*.slick-prev {*/
+/*  border: solid rgb(255, 255, 255);*/
+/*  width: 18px;*/
+/*  height: 18px;*/
+/*  top:calc(50% - 14px);*/
+/*  border-width: 0 4px 4px 0;*/
+/*  display: inline-block;*/
+/*  padding: 3px;*/
+/*  z-index: 2;*/
+/*}*/
 
-.slick-prev {
-  transform: rotate(135deg);
-  left: -12px ;
-}
+/*.slick-prev {*/
+/*  transform: rotate(135deg);*/
+/*  left: -12px ;*/
+/*}*/
 
-.slick-next {
-  right: -12px ;
-  transform: rotate(-45deg);
-}
-/*_____________________________________________________*/
+/*.slick-next {*/
+/*  right: -12px ;*/
+/*  transform: rotate(-45deg);*/
+/*}*/
+/*!*_____________________________________________________*!*/
 
 .assortment__item {
   /*padding: 71px 14.5px 80px;*/
@@ -116,4 +116,10 @@
     grid-row: unset;
   }
 }
+@media screen and (max-width: 374px) {
+.assortment__item {
+  margin-bottom: 0;
+  width: 240px;
+}
 
+}

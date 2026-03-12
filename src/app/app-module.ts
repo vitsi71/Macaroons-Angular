@@ -8,9 +8,10 @@ import {AssortmentsList} from './services/assortments-list';
 import {CurrencyPipe} from './pipes/currency-pipe';
 import {AdvantagesComponent} from './components/advantages/advantages';
 import { AssortmentComponent } from './components/assortment-component/assortment-component';
-import { ButtonBackground } from './directives/button-backgraund';
+import { ButtonBackground } from './directives/button-background';
 import { TextLengthPipe } from './pipes/text-length-pipe';
 import { PhoneFormatPipe } from './pipes/phone-format-pipe';
+import { NavMenu } from './components/nav-menu/nav-menu';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PhoneFormatPipe } from './pipes/phone-format-pipe';
     AssortmentComponent,
      ButtonBackground,
     TextLengthPipe,
-    PhoneFormatPipe
+    PhoneFormatPipe,
+    NavMenu
   ],
   imports: [
     BrowserModule,
