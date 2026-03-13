@@ -1,3 +1,23 @@
+<nav [class]="burger? 'open' : 'close'">
+  <div class="nav__close" (click)="burgerOn()">
+    <svg version="1.1" style="enable-background:new 0 0 492 492;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 500 492" xml:space="preserve">
+                    <g>
+                        <g>
+                            <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+                                c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+                                c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+                                L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+                                c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+                                c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+                                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"></path>
+                        </g>
+                    </g>
+                </svg>
+  </div>
+<nav-menu ></nav-menu>
+
+</nav>
+
 <section class="main wow animated fadeInDown slow">
 
   <header class="header">
@@ -14,33 +34,11 @@
 
       </div>
 
-      <nav class="nav" [class.open]="burger" id="nav">
-        <div class="nav__close" (click)="burgerOn()">
-          <svg version="1.1" style="enable-background:new 0 0 492 492;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 500 492" xml:space="preserve">
-                    <g>
-                        <g>
-                            <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
-                                c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
-                                c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
-                                L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
-                                c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
-                                c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
-                                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"></path>
-                        </g>
-                    </g>
-                </svg>
-        </div>
-        <div class="nav__menu">
 
-                    <a (click)="scrollTo(assortment)" class="nav__link">Пироженки</a>
-                    <a (click)="scrollTo(about)" class="nav__link">О нас</a>
-                    <a (click)="scrollTo(order)" class="nav__link">Оформить заказ</a>
+        <nav-menu class="nav"></nav-menu>
 
-        </div>
 
-      </nav>
-
-      <div class="contacts header__contacts">+375 (29) 368-98-68</div>
+      <div class="contacts header__contacts">{{phone|phoneFormat}}</div>
     </div>
   </header>
 
@@ -62,27 +60,9 @@
     </div>
   </section>
 </section>
-<section class="about wow animated fadeIn delay-1s slow" #about>
-  <div class="container about__container">
-    <h2 class="about__name">Мы печём для вас вкуснейшие макаруны уже более 10 лет</h2>
-    <p class="about__text">Все пироженки мы готовим только из натуральных и качественных продуктов, без
-      консервантов, ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей,
-      маргарина, разрыхлителей и улучшителей муки.</p>
-    <div class="about__img">
-      <img src="../assets/images/macaroon.png" alt="macaroon">
-    </div>
-    <div class="about__advantages">
 
-      @for (advantage of advantages; track advantage) {
-        <div class="about__advantage">
-          <div class="about__advantage-num">{{ $index + 1 }}</div>
-          <h3 class="about__advantage-name">{{ advantage.name }}</h3>
-          <p class="about__advantage-info">{{ advantage.info }}</p>
-        </div>
-      }
-    </div>
-  </div>
-</section>
+<advantagesComponent></advantagesComponent>
+
 <section class="assortment wow animated zoomIn showing"  #assortment>
   <div class=" container">
     <h2 class="assortment__name">Выберите свой макарун</h2>
@@ -90,17 +70,9 @@
     <div class="assortment__container">
       <div class="multiple-items" id="assortment__items" #toSlider>
         @for (assortment of assortments; track assortment) {
-          <div>
-            <div class="assortment__item ">
-              <a class="assortment__item-img" (click)="popup(assortment)">
-                <img src="../assets/images/{{assortment.image}}" alt="macaroon_{{$index+1}}">
-              </a>
-              <h3 class="assortment__item-name">{{assortment.name}}</h3>
-              <span class="assortment__item-count">1 шт.</span>
-              <span class="assortment__item-price">{{assortment.price}} руб.</span>
-              <button class="button hvr-pulse-grow assortment__btn" (click)="addToOrder(assortment,toSlider)" >Заказать</button>
-            </div>
-          </div>
+
+          <assortment-component [assortment]="assortment" (popupEvent)="popup($event)"
+                                (addToOrderEvent)="addToOrder($event,toSlider)"></assortment-component>
         }
 
       </div>
@@ -123,9 +95,8 @@
       <div class="order_msg">Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</div>
       <div class="order_form_form">
         <h3 class="order__form-name">Ваш выбор</h3>
-<!--        <textarea type="text" class="order__input textarea" id='input-product'-->
-        <textarea type="text" class="order__input textarea"  id='input-product' [(ngModel)]="valueOrder"
-                  placeholder="Напишите, что хотите заказать..." rows="1"></textarea>
+        <textarea type="textarea" class="order__input textarea"  id='input-product' [(ngModel)]="valueOrder"
+                  placeholder="Напишите, что хотите заказать..." rows="1" ></textarea>
         <p class="input__error">Заполните заказ</p>
 
         <h3 class="order__form-name">Заполните данные для заказа</h3>
@@ -137,7 +108,7 @@
         <p class="input__error">Введите телефон для связи</p>
         <p class="input__error">Введите телефон для связи полностью</p>
 
-        <button class="button hvr-bounce-in order__btn">Оформить заказ</button>
+        <button class="button hvr-bounce-in order__btn" buttonBackground [bgColor]="'rgb(248,2,22)'" [focusBgColor]="'blue'" >Оформить заказ</button>
       </div>
       <img src="assets/images/berry_bottom.png" alt="berry_bottom" class="order__anim order__anim-bottom">
 
@@ -161,27 +132,20 @@
       <img src="assets/images/instagram.png" alt="instagram">
       <span class="footer__instagram-text">Мы в Instagram</span>
     </a>
-    <div class="contacts footer__contacts">{{phone}}</div>
+    <div class="contacts footer__contacts">{{phone|phoneFormat}}</div>
   </div>
 </footer>
 
 @if (showPresent) {
   <div class="present">
     <div class="present__message">
-      <div class="present__info">Оформите заказ
-        и получите подарок!
-      </div>
+      <div class="present__info">{{countOrder.orderAmount | currency:'RUB':' руб.'}}</div>
     </div>
     <div class="present__img">
       <img src="assets/images/ellipse.png" alt="ellipse" class="present__ellipse">
-      <img src="assets/images/present.png" alt="present" class="present__img-img">
+      <img src="assets/images/cart.png" alt="cart" class="cart__img-img">
+      <div class="count_order">{{ countOrder.count }}</div>
     </div>
-  </div>
-}
-
-@if (popupOn){
-  <div class="popups" (click)="popupOn=false">
-    <img src="../assets/images/{{assortmentImage}}" alt="macaroon">
   </div>
 }
 
@@ -204,3 +168,8 @@
   </div>
 </div>
 
+@if (popupOn){
+  <div class="popups" (click)="popupOn=false">
+    <img src="../assets/images/{{assortmentImage}}" alt="macaroon">
+  </div>
+}

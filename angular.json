@@ -25,7 +25,8 @@
           "options": {
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -96,7 +97,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
@@ -115,5 +117,8 @@
   },
   "cli": {
     "analytics": "c9c4c726-4f0c-483e-afe9-6c5d4dade412"
-  }
+  },
+  "i18n": {
+  "sourceLocale":"ru-RU"
+}
 }

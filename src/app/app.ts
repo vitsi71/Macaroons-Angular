@@ -1,96 +1,48 @@
-import {Component} from '@angular/core';
-import {AboutAdvantageType} from './types/about-advantage.type';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AssortmentType} from './types/assortment.type';
+import {AssortmentsList} from './services/assortments-list';
+import {CountOrder} from './services/count-order';
+import {AdvantagesComponent} from './components/advantages/advantages';
+
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: false,
-  styleUrls: ['../assets/styles/jquery-ui.css', '../assets/slick/slick.css', '../assets/slick/slick-theme.css', '../assets/styles/animate.min.css',
-    '../assets/styles/hover-min.css', './app.css', '../assets/styles/adaptive.css']
+  styleUrls: [ './app.css', '../assets/styles/adaptive.css']
 })
-export class App {
+export class App implements OnInit{
 
-  public showPresent: boolean = false;
-  public phone: string = "+375 (29) 368-98-68";
+
+constructor(private assortmentsList:AssortmentsList, public countOrder:CountOrder) {
+
+}
+  public showPresent: boolean = true;
+  public phone: string = "375293689868";
   public instagram: string = "https://web.telegram.org";
-  public popupOn: boolean = false;
   public burger: boolean = false;
+
+
+  @ViewChild (AdvantagesComponent)
+  public advantagesComponent!: AdvantagesComponent;
+
+  @ViewChild ('assortment')
+  public assortment!: ElementRef;
+  @ViewChild ('order')
+  public order!: ElementRef;
+
 
   public burgerOn():void{
     this.burger=!this.burger;
   }
 
-  public advantages: AboutAdvantageType[] = [
-    {
-      num: 1,
-      name: "Лучшие продукты",
-      info: "Мы честно готовим макаруны только из натуральных и качественных продуктов.Мы " +
-        "не используем консерванты, ароматизаторы и красители."
-    },
-    {
-      num: 2,
-      name: "Много вкусов",
-      info: "Наша задача – предоставить вам широкое разнобразие вкусов. Вы удивитесь, но у нас" +
-        " более 70 вкусов пироженок."
-    },
-    {
-      num: 3,
-      name: "Бисквитное тесто",
-      info: "Все пирожные готовятся на бисквитном тесте с качественным сливочным " +
-        "маслом 82,5%. В составе нет маргарина и дрожжей!"
-    },
-    {
-      num: 4,
-      name: "Честный продукт",
-      info: "Вкус, качество и безопасность наших пирогов подтверждена декларацией о соответствии," +
-        " которую мы получили 22.06.2016 г."
-    },
-  ]
+  ngOnInit(){
+    this.assortments=this.assortmentsList.getAssortments();
+  }
 
-  public assortments: AssortmentType[] = [
-    {
-      image: "macaroon_red.png",
-      name: "Макарун с малиной",
-      price: 1.70
-    },
-    {
-      image: "macaroon_yell.png",
-      name: "Макарун с манго",
-      price: 1.70
-    },
-    {
-      image: "macaroon_beige.png",
-      name: "Пирог с ванилью",
-      price: 1.70
-    },
-    {
-      image: "macaroon_green.png",
-      name: "Пирог с фисташками",
-      price: 1.70
-    },
-    {
-      image: "macaroon_vanilla.png",
-      name: "Макарун ванильный пломбир",
-      price: 1.70
-    },
-    {
-      image: "macaroon_malina.png",
-      name: "Макарун малина",
-      price: 1.70
-    },
-    {
-      image: "macaroon_currant.png",
-      name: "Макарун черная смородина",
-      price: 1.70
-    },
-    {
-      image: "macaroon_chocolate.png",
-      name: "Макарун шоколад",
-      price: 1.70
-    },
-  ]
+  public assortments: AssortmentType[] = [];
+
 
   public scrollTo(target: HTMLElement): void {
     target.scrollIntoView({behavior: "smooth"});
@@ -98,8 +50,8 @@ export class App {
   }
 
   public valueOrder: string = '';
-
   public addToOrder(product: AssortmentType, target: HTMLElement) {
+
     this.scrollTo(target);
     // разбиваем заказ намассив элементов
     let orderArr = this.valueOrder.split(',');
@@ -129,15 +81,22 @@ export class App {
       }
     }
 
-    //увеличиваем высоту HTMLTextAreaElement
+     //увеличиваем высоту HTMLTextAreaElement
+
     let inputProduct: HTMLTextAreaElement = document.getElementById("input-product") as HTMLTextAreaElement;
-    inputProduct.style.height = inputProduct.scrollHeight.toString() + 'px';
+
+    inputProduct.style.height = inputProduct.scrollHeight.toString()+'px';
+
+    alert(product.name.toUpperCase() + ' добавлен в корзину!')
   }
 
+  public popupOn: boolean = false;
   public assortmentImage: string = '';
+
 
   public popup(product: AssortmentType) {
     this.popupOn = true;
     this.assortmentImage = product.image;
   }
+
 }
