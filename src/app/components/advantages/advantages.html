@@ -13,13 +13,8 @@
         <div class="about__advantage">
           <div class="about__advantage-num">{{ $index + 1 }}</div>
           <h3 class="about__advantage-name">{{ advantage.name }}</h3>
-          <p class="about__advantage-info" (mouseenter)="textToLength()" (mouseleave)="textToLength()">
-            @if (hidingTextToLength) {
-              {{ advantage.info | textLength }}
-            } @else {
-              {{ advantage.info }}
-            }
-          </p>
+          <p class="about__advantage-info" (mouseenter)="textToLength($event.target)" (mouseleave)="textToLength('')">
+            {{ advantage.info | textLength:el }}</p>
         </div>
       }
     </div>

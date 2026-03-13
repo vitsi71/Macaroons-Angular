@@ -139,7 +139,7 @@
 @if (showPresent) {
   <div class="present">
     <div class="present__message">
-      <div class="present__info">{{countOrder.orderAmount | currencyPipe}}</div>
+      <div class="present__info">{{countOrder.orderAmount | currency:'RUB':' руб.'}}</div>
     </div>
     <div class="present__img">
       <img src="assets/images/ellipse.png" alt="ellipse" class="present__ellipse">

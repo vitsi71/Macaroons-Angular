@@ -10,8 +10,7 @@ import {AdvantagesComponent} from './components/advantages/advantages';
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: false,
-  styleUrls: ['../assets/styles/jquery-ui.css', '../assets/slick/slick.css', '../assets/slick/slick-theme.css', '../assets/styles/animate.min.css',
-    '../assets/styles/hover-min.css', './app.css', '../assets/styles/adaptive.css']
+  styleUrls: [ './app.css', '../assets/styles/adaptive.css']
 })
 export class App implements OnInit{
 

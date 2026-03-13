@@ -5,7 +5,7 @@
     </a>
     <h3 class="assortment__item-name">{{assortment.name}}</h3>
     <span class="assortment__item-count">1 шт.</span>
-    <span class="assortment__item-price">{{assortment.price | currencyPipe }}</span>
+    <span class="assortment__item-price">{{assortment.price | currency:'RUB':' руб.' }}</span>
     <button class="button hvr-pulse-grow assortment__btn" buttonBackground (click)="addToOrder(assortment)" >Заказать</button>
   </div>
 </div>

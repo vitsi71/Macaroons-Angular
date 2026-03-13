@@ -12,10 +12,10 @@ export class AdvantagesComponent {
 @ViewChild ("about")
   public about!: ElementRef;
 
-public hidingTextToLength:boolean=true;
+public el:any='';
 
-  textToLength(){
-    this.hidingTextToLength=!this.hidingTextToLength
+  textToLength(target:any){
+    this.el=target;
   }
 
   public advantages: AboutAdvantageType[] = [
